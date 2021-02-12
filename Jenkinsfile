@@ -27,7 +27,7 @@ pipeline {
         sh "python ${params.Localworkspace}/${Pythonprogram} 0"
         echo "return value ${Results[0]}"
 
-        Error(message: "Executing First Py failed") {
+        warnError(message: "Executing First Py failed") {
           sh "python ${params.Localworkspace}/${Pythonprogram} 0" == Results[0] 
         }
        
