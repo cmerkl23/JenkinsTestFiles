@@ -1,11 +1,16 @@
 pipeline {
  agent {label 'JenkinsLowLevelPlattformWithPython'}
- 
+
   stages {
     stage('Build') {
       steps {
-        echo 'This is the blue Pipeline'
-        sleep 10
+        sh 'mkdir ${params.Localworkspace}'
+        echo '${params.Localworkspace} has been created'
+        
+        sh 'git clone ${params.Sourcerepo} ${params.Localworkspace}'
+        echo '${params.Sourcerepo} has been cloned to ${params.Localworkspace}' 
+        
+        
       }
     }
 
