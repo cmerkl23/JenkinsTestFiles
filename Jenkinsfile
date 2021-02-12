@@ -41,4 +41,9 @@ pipeline {
     }
 
   }
+  post {
+    always {
+        sh "sudo rm -r ${params.Localworkspace}"
+    }
+  }
 }
