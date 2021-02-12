@@ -1,3 +1,16 @@
+def Pythonprogram = "SimpleProg.py"
+def Results = [
+  -1: "Not a valid day"
+  0: "Sunday"
+  1: "Monday"
+  2: "Tuesday"
+  3: "Wednesday"
+  4: "Thursday"
+  5: "Friday"
+  6: "Saturday"
+  7: "Not a valid day"
+  ]
+
 pipeline {
  agent {label 'JenkinsLowLevelPlattformWithPython'}
 
@@ -19,15 +32,15 @@ pipeline {
 
     stage('Test') {
       steps {
-        warnError(message: "Executing First Py failed") {
-          sh "python ~/PyScripts/SuccessFull.py"
-        }
+        
+        echo "return value python ${params.Sourcerepo}/${Pythonprogram} -1"
+        sh "python ${params.Sourcerepo}/${Pythonprogram} -1"
+        echo "return value ${Results[-1]}"
 
-        warnError(message: "Second Py failed") {
-          sh "python ~/PyScripts/Failed.py"
+        Error(message: "Executing First Py failed") {
+          sh "python ${params.Sourcerepo}/${Pythonprogram} -1" == Results[-1] 
         }
-
-        sh "python ~/PyScripts/SuccessFull.py"
+       
       }
     }
 
