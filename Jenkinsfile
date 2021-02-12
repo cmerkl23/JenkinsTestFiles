@@ -4,9 +4,12 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+
+        echo 'try to mkdir ${params.Localworkspace}'
         sh 'mkdir ${params.Localworkspace}'
         echo '${params.Localworkspace} has been created'
         
+        echo 'try to git clone ${params.Sourcerepo} ${params.Localworkspace}'
         sh 'git clone ${params.Sourcerepo} ${params.Localworkspace}'
         echo '${params.Sourcerepo} has been cloned to ${params.Localworkspace}' 
         
