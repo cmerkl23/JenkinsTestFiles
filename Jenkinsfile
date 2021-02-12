@@ -30,7 +30,17 @@ pipeline {
           echo "GivenResult: ${GivenResult}"
           echo "Results[0]: ${Results[0]}"
 
-          assert GivenResult == "Sunday" : "GivenResult = ${GivenResult}, but should be Sunday"
+          assert GivenResult == Results[0] : "GivenResult = ${GivenResult}, but should be ${Results[0]}"
+
+          Results.each {key, val ->
+                        GivenResult = sh(script: "python ${params.Localworkspace}/${Pythonprogram} ${key}", returnStdout: true).trim()
+                        echo "GivenResult = ${GivenResult} <----> Expected result = ${val}"
+
+                        assert GivenResult == val : "GivenResult = ${GivenResult}, but should be ${val}"
+                       }
+
+
+
         }
                
        
