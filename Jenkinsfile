@@ -1,5 +1,6 @@
 def Pythonprogram = "SimpleProg.py"
 def Results = [0: 'Sunday', 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday", 7: "Not a valid day"]
+def GivenResult = ""
 
 pipeline {
  agent {label 'JenkinsLowLevelPlattformWithPython'}
@@ -27,8 +28,9 @@ pipeline {
         sh "python ${params.Localworkspace}/${Pythonprogram} 0"
         echo "return value ${Results[0]}"
 
+        GivenResult = sh "python ${params.Localworkspace}/${Pythonprogram} 0"
         warnError(message: "Executing First Py failed") {
-          assert sh "python ${params.Localworkspace}/${Pythonprogram} 0" == Results[0] 
+          assert GivenResult == Results[0] 
         }
        
       }
