@@ -24,11 +24,11 @@ pipeline {
     stage('Test') {
       steps {
         
-        echo "return value python ${params.Localworkspace}/${Pythonprogram} 0"
-        sh "python ${params.Localworkspace}/${Pythonprogram} 0"
-        echo "return value ${Results[0]}"
+        //echo "return value python ${params.Localworkspace}/${Pythonprogram} 0"
+        //sh "python ${params.Localworkspace}/${Pythonprogram} 0"
+        //echo "return value ${Results[0]}"
 
-        //def ret = sh(script: 'uname', returnStdout: true)
+        def ret = sh(script: 'uname', returnStdout: true)
         //println ret
         //GivenResult = sh(script: "python ${params.Localworkspace}/${Pythonprogram} 0", returnStdout: true).trim()
         //warnError(message: "Executing First Py failed") {
@@ -36,10 +36,7 @@ pipeline {
         //}
        
       }
-      steps {
-        def ret = sh(script: 'uname', returnStdout: true)
-        println ret
-      }
+      
     }
 
     stage('Deploy') {
