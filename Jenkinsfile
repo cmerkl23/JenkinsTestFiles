@@ -30,7 +30,7 @@ pipeline {
           echo "GivenResult: ${GivenResult}"
           echo "Results[0]: ${Results[0]}"
 
-          assert GivenResult == Results[0] : "GivenResult = ${GivenResult}, but should be ${Results[0]}"
+          assert GivenResult == "Sunday" : "GivenResult = ${GivenResult}, but should be ${Results[0]}"
         }
                
        
