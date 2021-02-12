@@ -23,12 +23,12 @@ pipeline {
     stage('Test') {
       steps {
         
-        echo "return value python ${params.Sourcerepo}/${Pythonprogram} -1"
-        sh "python ${params.Sourcerepo}/${Pythonprogram} -1"
+        echo "return value python ${params.Localworkspace}/${Pythonprogram} -1"
+        sh "python ${params.Localworkspace}/${Pythonprogram} -1"
         echo "return value ${Results[-1]}"
 
         Error(message: "Executing First Py failed") {
-          sh "python ${params.Sourcerepo}/${Pythonprogram} -1" == Results[-1] 
+          sh "python ${params.Localworkspace}/${Pythonprogram} -1" == Results[-1] 
         }
        
       }
