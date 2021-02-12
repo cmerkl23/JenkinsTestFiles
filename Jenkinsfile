@@ -1,10 +1,6 @@
 pipeline {
-  agent {
-    node {
-      label 'JenkinsLowLevelPlattform'
-    }
-
-  }
+ agent {label 'JenkinsLowLevelPlattformWithPython'}
+ 
   stages {
     stage('Build') {
       steps {
