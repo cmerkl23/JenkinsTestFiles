@@ -1,13 +1,13 @@
 def Pythonprogram = "SimpleProg.py"
 def Results = [
-  -1: "Not a valid day"
-  0: "Sunday"
-  1: "Monday"
-  2: "Tuesday"
-  3: "Wednesday"
-  4: "Thursday"
-  5: "Friday"
-  6: "Saturday"
+  -1: "Not a valid day",
+  0: "Sunday",
+  1: "Monday",
+  2: "Tuesday",
+  3: "Wednesday",
+  4: "Thursday",
+  5: "Friday",
+  6: "Saturday",
   7: "Not a valid day"
   ]
 
