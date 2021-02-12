@@ -25,7 +25,7 @@ pipeline {
       steps {
         
         script {
-          GivenResult = sh(script: "python ${params.Localworkspace}/${Pythonprogram} 0", returnStdout: true)
+          GivenResult = sh(script: "python ${params.Localworkspace}/${Pythonprogram} 0", returnStdout: true).trim()
 
           echo "GivenResult: ${GivenResult}"
           echo "Results[0]: ${Results[0]}"
