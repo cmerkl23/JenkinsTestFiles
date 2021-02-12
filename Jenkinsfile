@@ -28,6 +28,7 @@ pipeline {
           GivenResult = sh(script: "python ${params.Localworkspace}/${Pythonprogram} 0", returnStdout: true)
         }
         echo "GivenResult: ${GivenResult}"
+        echo "Results[0]: ${Results[0]}"
 
         warnError(message: "Executing First Py failed") {
           assert GivenResult == Results[0] 
