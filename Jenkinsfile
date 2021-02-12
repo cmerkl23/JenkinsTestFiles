@@ -28,10 +28,12 @@ pipeline {
         sh "python ${params.Localworkspace}/${Pythonprogram} 0"
         echo "return value ${Results[0]}"
 
-        GivenResult = sh(script: "python ${params.Localworkspace}/${Pythonprogram} 0", returnStdout: true).trim()
-        warnError(message: "Executing First Py failed") {
-          assert GivenResult == Results[0] 
-        }
+        def ret = sh(script: 'uname', returnStdout: true)
+        println ret
+        //GivenResult = sh(script: "python ${params.Localworkspace}/${Pythonprogram} 0", returnStdout: true).trim()
+        //warnError(message: "Executing First Py failed") {
+        //  assert GivenResult == Results[0] 
+        //}
        
       }
     }
