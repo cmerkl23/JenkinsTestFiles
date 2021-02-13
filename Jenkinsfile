@@ -3,7 +3,8 @@ def Results = [0: 'Sunday', 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thurs
 def GivenResult = ""
 
 pipeline {
- agent {label 'JenkinsLowLevelPlattformWithPython'}
+ //gent {label 'JenkinsLowLevelPlattformWithPython'}
+ agent {label 'any'}
 
   stages {
     stage('Build') {
