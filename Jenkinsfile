@@ -4,7 +4,7 @@ def GivenResult = ""
 
 pipeline {
  //gent {label 'JenkinsLowLevelPlattformWithPython'}
- agent {label 'any'}
+ agent {label master}
 
   stages {
     stage('Build') {
